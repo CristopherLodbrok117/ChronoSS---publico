@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+.contenedor{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contenedor *{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+fieldset{
+    margin-top: 100px;
+}

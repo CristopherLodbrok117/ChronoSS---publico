@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorización</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <div>
+            <h1>Autorizar este equipo</h1>
+            <div class="contenedor">
+                <label>Tipo de token: </label>
+                <select id="tipo-combo">
+                    <option value="profe">Encargado</option>
+                    <option value="terminal">Terminal</option>
+                </select>
+            </div>
+            <div class="contenedor">
+                <label>Codigo académico: </label>
+                <input type="number" id="idprofe-input">
+                <label>Contraseña: </label>
+                <input type="password" id="password-input">
+                
+            </div>
+            <div class="contenedor">
+                <button id="autorizar-button">Autorizar</button>
+                <button id="nuke-button">Eliminar derechos</button>
+            </div>
+            <fieldset>
+                <legend>Cambiar contraseña</legend>
+                <div class="contenedor">
+                    <label>Vieja contraseña: </label>
+                    <input type="password" id="old-pw">
+                </div>
+                <div class="contenedor">
+                    <label>Nueva contraseña: </label>
+                    <input type="password" id="new-pw">
+                </div>
+                <div class="contenedor">
+                    <label>Repetir nueva contraseña: </label>
+                    <input type="password" id="new-pw-rep">
+                </div>
+                
+                <div class="contenedor">
+                    <button id="boton-cambiar">Cambiar</button>
+                </div>
+                
+            </fieldset>
+
+            <div class="contenedor">
+                <a href="../management/index.php">Panel de Control</a>
+                <a href="../registroHoras/index.php">Registro de Horas</a>    
+            </div>
+        </div>    
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
