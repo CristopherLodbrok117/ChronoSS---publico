@@ -1,0 +1,75 @@
+<!--QUE BUSCAS AQUI??? 🤨-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de horas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="face-api.min.js"></script>
+</head>
+<body>
+
+    <div id="banner-container">
+        <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
+        <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
+    </div>
+
+    <h1>Bienvenido al sistema de registro de horas</h1>
+    <!--
+    <div id="user-input">
+        <input type="number" id="codigo-input" placeholder="Código">
+        <button id="boton-entrar">Entrar</button>
+    </div>
+    -->
+    <div id="camera-input">
+        <button id="camara-registrar">📷</button>
+    </div>
+
+    <div id="webcamContainer">
+    </div>
+
+
+    <div id="tabla-mensaje" style="align-items:flex-start">
+        <div id="reglas">
+            <p>PUNTOS A TOMAR EN CUENTA:</p>
+            <ul>
+                <li>
+                    Sesiones con más de 8 horas de duración no serán registradas por el sistema.
+                </li>
+                <li>
+                    Todos los registros son para uso exclusivo de esta dependencia.
+                </li>
+                <li>
+                    Las horas extra no se deben registrar por medio de este sitio.
+                </li>
+            </ul>
+            <!--
+            <div style="display: flex;justify-content:center;margin-bottom:100px;margin-top:-20px;">
+                <img src="../img/qr-code.jpg" width="200" height="200">
+            </div>
+            -->
+        </div>
+        <div id="activos-container">
+            <table>
+                <thead>
+                    <th colspan="2">Prestadores en jornada</th>
+                    <th>Tiempo</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>© UDG All rights reserved</p>
+        <p>|</p>
+        <p>Powered by [_cuceiMobile]</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="camara.js"></script>
+</body>
+</html>
