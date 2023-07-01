@@ -18,7 +18,6 @@ try{
                      "values(%s, '%s', '%s', '%s', '%s')", $idProfe, $passwordHasheado, $dependencia, $nombre, $email);
     
     $result = $conn->query($query);
-    $result = $conn->query($query);
     echo $result;
 }
 
