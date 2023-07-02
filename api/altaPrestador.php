@@ -1,4 +1,6 @@
 <?php
+require "_auth.php";
+
 $servername = "db5013554698.hosting-data.io";
 $username = "dbu1229465";
 $password = "cuceimobile";
@@ -7,16 +9,19 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 try{
-    //$idProfe = $_POST["idprofe"];
-    $idProfe = 777;
+    $idProfe = $_POST["idprofe"];
     $codigo = $_POST["codigo"];
     $nombre = $_POST["nombre"];
     $rasgos = $_POST["rasgos"];
+    $token = $_POST["token"];
 
-    $query = sprintf("insert into prestador (idPrestador, nombre, jefe, cara) values (%s, '%s', %s, '%s')", $codigo, $nombre, $idProfe, $rasgos);
-    $result = $conn->query($query);
-
-    echo $result;
+    if(autenticarToken($conn, "terminal", $token, $idProfe) == 1){
+        $query = sprintf("insert into prestador (idPrestador, nombre, jefe, cara) values (%s, '%s', %s, '%s')", $codigo, $nombre, $idProfe, $rasgos);
+        $conn->query($query);
+        echo 1;
+    }else{
+        echo "X";
+    }
 }
 
 catch(Exception $e) {echo 'Message: ' .$e->getMessage();}
