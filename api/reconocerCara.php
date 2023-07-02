@@ -12,8 +12,7 @@ $conn = new mysqli("localhost", "arturo", "cuceimobile", "chronoss_php");
 
 
 try{
-    //$idProfe = $_POST["idprofe"];
-    $idProfe = 777;
+    $idProfe = $_GET["idprofe"];
     $cara = $_GET["rasgos"];
     $cara = trim($cara, "][");
     $cara = explode(",", $cara);
@@ -37,13 +36,7 @@ try{
             array_push($distancias, $r);
         }
     }
-    usort($distancias,function($first,$second){
-        return $first->delta > $second->delta;
-    });
-
-
     echo json_encode($distancias);
-
 }
 
 catch(Exception $e) {echo 'Message: ' .$e->getMessage();}
@@ -59,11 +52,7 @@ function euclides($cara, $vector){
         $dif = $dif**2;
         $acum += $dif;
     }
-
-
     return sqrt($acum);
-
-
 }
 
 
