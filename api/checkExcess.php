@@ -27,7 +27,7 @@ if ($activos->num_rows > 0) {
         if($dif >= 8*60*60){
             $conn->query("update prestador set enServicio = false where idPrestador = ".$codigo.";");
             $conn->query("insert into timelog(prestador, tipo) values(".$codigo.", 'sal');");
-            $respuesta = 1;
+            echo "1";
         }
     }
 }
