@@ -1,0 +1,129 @@
+body{
+    /*background-image: linear-gradient(rgb(0, 183, 255), white);
+    background-image: linear-gradient(black , white 35%);
+    background-repeat: no-repeat;*/
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    background: white;
+    background-image: radial-gradient(rgb(201, 201, 201) 1px, transparent 0);
+    background-size: 40px 40px;
+    background-position: -19px -19px;
+}
+#banner-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+}
+
+#udg-cucei-logo{
+    width: 250px;
+    filter: invert(0%);
+}
+#cuceimobilelogo{
+    width: 215px;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+.contenedor{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+#filtro-codigo, #filtro-nombre{
+    font-size: 20px;
+}
+
+
+#lista-prestadores{
+    flex-direction: column;
+    display: flex;
+}
+
+.item-header{
+    background-color: rgb(212, 255, 255);
+    margin-top: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 10px;
+    
+    display: flex;
+    align-items: center;
+}
+.item-header:hover{
+    cursor: pointer;
+    filter: saturate(300%);
+}
+
+.item-header > p{
+    text-align: center;
+}
+
+.cajon{
+    background-color: #d1d1d13d;
+    padding-bottom: 50px;
+    display: none;
+}
+
+.quitapon{
+    padding-left: 10px;
+    width: 70px;
+    font-size: 18px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.boton-ok{
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.boton-ok:hover{
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+th{
+    background-color: lightgray;
+    min-width: 150px;
+}
+
+td, th {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.tdEntrada{
+    background-color: #b3ffb3;
+}
+
+.tdSalida{
+    background-color: #ff8080;
+}
+.no-flechas::-webkit-outer-spin-button,
+.no-flechas::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.boton-eliminar{
+    background-color: #ff8080;
+    margin-top: 30px;
+}
+
+.boton-eliminar:hover{
+    background-color: red;
+    cursor: pointer;
+}
