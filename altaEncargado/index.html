@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Proyecto modular">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Encargado</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <!-- Estilo -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- Script -->
+  
+
+</head>
+<body>
+  <!-- Banner -->
+  <header>
+    <div id="banner-container">
+      <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
+      <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
+  </div>
+  </header>
+
+  <!-- Formulario -->
+  <main>
+    <h1 class="text-center" id="titulo">Registrar encargado</h1>
+    <div class="signup-container col-xs-10 col-lg-8 d-flex flex-column">
+      <div class="form-floating mb-2 ">
+        <input type="number" class="form-control fs-5" id="codigo" placeholder="Escriba su código">
+        <label for="floatingInput">Código</label>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="password" class="form-control fs-5" id="password" placeholder="Escriba su contraseña">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="text" class="form-control fs-5" id="dependencia" placeholder="Escriba el nombre de la dependencia">
+        <label for="floatingInput">Dependencia</label>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="text" class="form-control fs-5" id="nombre-encargado" placeholder="Escriba su Nombre">
+        <label for="floatingPassword">Encargado</label>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="email" class="form-control fs-5" id="email" placeholder="Escriba su correo">
+        <label for="floatingInput">Correo</label>
+      </div>
+      <button class="boton circular" id="boton-registrar">
+        <span>Registrar</span>
+        <i class="bi bi-arrow-right" id="icon-registrar"></i>
+      </button>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-exitoso" id="toast-header">
+            <i class="bi bi-person-check-fill" id="toast-icono"></i>
+            <strong class="me-auto margin-left" id="toast-titulo">Registro exitoso!</strong>
+            <small>Ahora</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toast-msg">
+            Mensaje default
+        </div>
+    </div>
+  </div>
+  <!-- Bootstrap js -->
+  <script src="../util/toast.js"></script> 
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
