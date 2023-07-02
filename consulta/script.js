@@ -44,7 +44,7 @@ function fetchData(succ, reject){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            let respuesta = JSON.parse(xhttp.responseText);
+            let respuesta = JSON.parse(xhttp.responseText);            
             cargando.classList.remove("loader");
             if(respuesta.codigo != null){
                 localStorage.setItem("codigo", respuesta.codigo);
