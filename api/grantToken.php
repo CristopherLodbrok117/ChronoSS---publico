@@ -17,7 +17,6 @@ try{
         $newToken = bin2hex(random_bytes(150));
         $query = sprintf("insert into token (content, dueno, tipo) values('%s', '%s', '%s')",
                          $newToken, $idProfe, $tipo);
-        echo $query."\n\n";
         $conn->query($query);
         echo $newToken;
     }else{
