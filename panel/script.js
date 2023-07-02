@@ -123,11 +123,7 @@ function addListeners(){
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     let respuesta = xhttp.responseText;
-                    if(respuesta == 1){
-                        alert("Registro correcto!");
-                    }else{
-                        alert("Algo salio mal!");
-                    }
+                    alert(respuesta);
                     location.reload();
                 }
             };
