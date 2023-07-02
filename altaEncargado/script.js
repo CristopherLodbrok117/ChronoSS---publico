@@ -13,12 +13,12 @@ document.querySelector("#boton-registrar").addEventListener("click", function() 
     mostrarToast(TITULO_WARNING, BACKGROUND_WARNING, "Faltan campos por llenar", ICONO_WARNING);
     return;
   }
-  mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, `Para completar su registro dar click al link que se le envio a su correo`, ICONO_SUCCESS);
+  
   // Llamada para verificar correo
 
   const senddata = new FormData();
-  senddata.append("idEncargado", codigo);
-  senddata.append("passw", password);
+  senddata.append("idprofe", codigo);
+  senddata.append("password", password);
   senddata.append("dependencia", dependencia);
   senddata.append("nombre", nombreEncargado);
   senddata.append("email", email);
@@ -30,8 +30,8 @@ document.querySelector("#boton-registrar").addEventListener("click", function() 
       mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, `Para completar su registro dar click al link que se le envio a su correo`, ICONO_SUCCESS);
     }
   };
-  // xhttp.open("POST", `${backendServer}/registrarEncargado.php`, true);
-  // xhttp.send(senddata);
+  xhttp.open("POST", `${backendServer}/altaEncargado.php`, true);
+  xhttp.send(senddata);
 });
 
 
