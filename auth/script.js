@@ -14,7 +14,7 @@ document.querySelector("#autorizar-button").addEventListener("click", function()
         if (this.readyState == 4 && this.status == 200) {
             let respuesta = xhttp.responseText;
             console.log(respuesta);
-            if(respuesta == "0"){
+            if(respuesta == "X"){
                 alert("error");
                 location.reload();
             }else{
@@ -25,7 +25,7 @@ document.querySelector("#autorizar-button").addEventListener("click", function()
             }
         }
     };
-    xhttp.open("GET", `${backendServer}/grantToken.php?idprofe=${idProfe}&passw=${givenPassword}&tipo=${tipo}`, true);
+    xhttp.open("GET", `${backendServer}/grantToken.php?idprofe=${idProfe}&password=${givenPassword}&tipo=${tipo}`, true);
     xhttp.send(null);
 });
 
