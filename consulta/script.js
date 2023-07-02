@@ -1,5 +1,5 @@
-//const backendServer = "https://chronoss.mx/api";
-const backendServer = "http://localhost:8000";
+const backendServer = "https://chronoss.mx/api";
+//const backendServer = "http://localhost:8000";
 
 const vistaLogin = document.querySelector("#login");
 const vistaInfo = document.querySelector("#info");

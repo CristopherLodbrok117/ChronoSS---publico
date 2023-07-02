@@ -1,6 +1,6 @@
 checkAuth();
-//const backendServer = "https://chronoss.mx/api";
-const backendServer = "http://localhost:8000";
+const backendServer = "https://chronoss.mx/api";
+//const backendServer = "http://localhost:8000";
 
 const tablaActivos = document.querySelector("table");
 const codigoInput = document.querySelector("#codigo-input");
