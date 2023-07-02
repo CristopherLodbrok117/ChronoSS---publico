@@ -1,3 +1,4 @@
+checkAuth();
 //const backendServer = "http://127.0.0.1:5000";
 //https://chronoss.mx/terminal/getAllPrestadorInfo.php
 const backendServer = "https://chronoss.mx/api";
@@ -71,5 +72,10 @@ btnCamRegistrar.addEventListener("click", function(){
 
 });
 
-
+function checkAuth(){
+    let token = localStorage.getItem('terminal_token');
+    if(token == null || token == ""){
+        window.location.replace("../auth/");
+    }
+}
 
