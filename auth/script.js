@@ -13,6 +13,7 @@ document.querySelector("#autorizar-button").addEventListener("click", function()
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let respuesta = xhttp.responseText;
+            console.log(respuesta);
             if(respuesta == "0"){
                 alert("error");
                 location.reload();
