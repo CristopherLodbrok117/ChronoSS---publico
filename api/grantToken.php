@@ -14,7 +14,7 @@ try{
     $tipo = $_GET["tipo"];
     
     if(autenticarPassword($conn, $password, $idProfe) == 1){
-        $newToken = bin2hex(random_bytes(150));
+        $newToken = bin2hex(random_bytes(75));
         $query = sprintf("insert into token (content, dueno, tipo) values('%s', '%s', '%s')",
                          $newToken, $idProfe, $tipo);
         $conn->query($query);
