@@ -1,7 +1,6 @@
 checkAuth();
-//const backendServer = "http://127.0.0.1:5000";
-//https://chronoss.mx/terminal/getAllPrestadorInfo.php
 const backendServer = "https://chronoss.mx/api";
+//const backendServer = "http://localhost:8000";
 
 const btnCamRegistrar = document.querySelector("#boton-entrar");
 const streamContainer = document.querySelector("#webcamContainer");

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Consulta de horas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="banner-container">
+        <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
+        <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
+    </div>
+
+
+
+    <div id="login">
+        <h1>Consulta de horas cubiertas</h1>
+
+
+        <div id="form-container">
+            <input id="codigo-input" type="number" placeholder="Código">
+            <button id="boton-entrar">↪</button>
+        </div>
+    </div>
+
+
+    <div id="info">
+        <h1 id="nombre"></h1>
+
+        <div class="tiempo-container">
+            <h2>Horas cubiertas</h2>
+            <div id="tiempo">
+                <span id="horas"></span>
+                :
+                <span id="minutos"></span>
+                :
+                <span id="segundos"></span>
+
+            </div>
+        </div>
+
+        <div class="stamps-container">
+            <div class="stamp">
+                <div class="title">Primera sesión</div>
+                <div class="content" id="primero-contenido">17 de septiembre de 2022</div>
+            </div>
+            <div class="stamp">
+                <div class="title">Última sesión</div>
+                <div class="content" id="ultimo-contenido">17 de mayo de 2023</div>
+            </div>
+            
+        </div>
+
+        <div id="boton-salir-container">
+            <button id="boton-salir">🏃 Salir</button>
+        </div>
+    </div>
+
+
+
+    <div id="cargando"></div>
+
+
+
+    <footer>
+        <p>© UDG All rights reserved</p>
+        <p class="separator">|</p>
+        <p>Powered by [_cuceiMobile]</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

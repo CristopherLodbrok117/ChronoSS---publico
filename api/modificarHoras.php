@@ -15,17 +15,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 try{
     $codigo = $_POST["codigo"];
     $token = $_POST["token"];
-    
+    $delta = $_POST["delta"];
+
     $idProfe = getProfe($conn, $codigo);
     
     if(autenticarToken($conn, "profe", $token, $idProfe) == 1){
-        $query = sprintf("delete from timelog where prestador = %s", $codigo);
-        $result = $conn->query($query);
-
-        $query = sprintf("delete from prestador where idPrestador = %s", $codigo);
-        $result2 = $conn->query($query);
-
-        echo "Prestador eliminado";
+        $delta = $delta*60*60;
+        $query = sprintf("update prestador set tiempoAcumulado = tiempoAcumulado + %s where idPrestador = %s", $delta, $codigo);
+        $conn->query($query);
+        echo ($delta/3600)." horas ajustadas";
     }else{
         echo "X";
     }

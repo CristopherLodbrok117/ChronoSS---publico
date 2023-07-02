@@ -1,6 +1,5 @@
 <?php
 
-
 function autenticarPassword($conn, $passw, $idProfe) {
     $query = sprintf("select passw from encargado where idEncargado = %s", $idProfe);
     $result = $conn->query($query);
@@ -22,7 +21,7 @@ function autenticarToken($conn, $tipo, $givenToken, $idProfe){
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            if($givenToken == $row("content")){
+            if($givenToken == $row["content"]){
                 return 1;
             }       
         }

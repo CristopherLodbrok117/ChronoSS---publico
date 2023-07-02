@@ -2,6 +2,7 @@
 //header('Access-Control-Allow-Origin: *');
 //header("Access-Control-Allow-Methods: GET, OPTIONS, POST");
 
+
 require "_auth.php";
 
 $servername = "db5013554698.hosting-data.io";
@@ -13,19 +14,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 try{
-    $codigo = $_POST["codigo"];
-    $token = $_POST["token"];
-    
-    $idProfe = getProfe($conn, $codigo);
-    
-    if(autenticarToken($conn, "profe", $token, $idProfe) == 1){
-        $query = sprintf("delete from timelog where prestador = %s", $codigo);
-        $result = $conn->query($query);
-
-        $query = sprintf("delete from prestador where idPrestador = %s", $codigo);
-        $result2 = $conn->query($query);
-
-        echo "Prestador eliminado";
+    $idProfe = $_POST["idprofe"];
+    $oldpassword = $_POST["vieja"];
+    $newpassword= $_POST["nueva"];
+    if(autenticarPassword($conn, $oldpassword, $idProfe) == 1){
+        $passwordHasheado = password_hash($newpassword, PASSWORD_DEFAULT);
+        $query = sprintf("update encargado set passw = '%s' where idEncargado = %s ",
+                         $passwordHasheado, $idProfe);
+        $conn->query($query);
+        $query = sprintf("delete from token where dueno = %s", $idProfe);
+        $conn->query($query);
     }else{
         echo "X";
     }
@@ -34,5 +32,6 @@ try{
 catch(Exception $e) {echo 'Message: ' .$e->getMessage();}
 
 $conn->close();
+
 
 ?>

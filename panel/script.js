@@ -1,7 +1,6 @@
 checkAuth();
-//const backendServer = "http://148.202.152.33/Servicio_Social";
-//const backendServer = "http://127.0.0.1:5000";
 const backendServer = "https://chronoss.mx/api";
+//const backendServer = "http://localhost:8000";
 
 const listaPrestadores = document.querySelector("#lista-prestadores");
 let globalInfoPrestadores = [];
@@ -124,11 +123,7 @@ function addListeners(){
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     let respuesta = xhttp.responseText;
-                    if(respuesta == 1){
-                        alert("Registro correcto!");
-                    }else{
-                        alert("Algo salio mal!");
-                    }
+                    alert(respuesta);
                     location.reload();
                 }
             };

@@ -1,15 +1,18 @@
 <?php
+//header('Access-Control-Allow-Origin: *');
+//header("Access-Control-Allow-Methods: GET, OPTIONS, POST");
+
 
 $servername = "db5013554698.hosting-data.io";
 $username = "dbu1229465";
 $password = "cuceimobile";
 $dbname = "dbs11355777";
 $conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli("localhost", "arturo", "cuceimobile", "chronoss_php");
 
 
 try{
-    //$idProfe = $_POST["idprofe"];
-    $idProfe = 777;
+    $idProfe = $_GET["idprofe"];
     $cara = $_GET["rasgos"];
     $cara = trim($cara, "][");
     $cara = explode(",", $cara);
@@ -33,13 +36,7 @@ try{
             array_push($distancias, $r);
         }
     }
-    usort($distancias,function($first,$second){
-        return $first->delta > $second->delta;
-    });
-
-
     echo json_encode($distancias);
-
 }
 
 catch(Exception $e) {echo 'Message: ' .$e->getMessage();}
@@ -55,11 +52,7 @@ function euclides($cara, $vector){
         $dif = $dif**2;
         $acum += $dif;
     }
-
-
     return sqrt($acum);
-
-
 }
 
 
