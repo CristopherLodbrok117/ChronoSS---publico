@@ -25,7 +25,7 @@ document.querySelector("#autorizar-button").addEventListener("click", function()
             }
         }
     };
-    xhttp.open("GET", `${backendServer}/grantToken.php?idProfe=${idProfe}&passw=${givenPassword}&tipo=${tipo}`, true);
+    xhttp.open("GET", `${backendServer}/grantToken.php?idprofe=${idProfe}&passw=${givenPassword}&tipo=${tipo}`, true);
     xhttp.send(null);
 });
 
