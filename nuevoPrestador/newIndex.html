@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   
   <!-- Estilo -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="newStyle.css">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
 
   <!-- Script -->
-  
+  <script src="face-api.min.js"></script>
 
 </head>
 <body>
@@ -27,7 +27,7 @@
   <header>
     <div id="banner-container">
       <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
-      <img src="../img/cuceimobilelogo.png" id="cuceimobilelogo">
+      <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
   </div>
   </header>
 
@@ -38,8 +38,9 @@
     <div class="card mb-3 container" >
       <div class="row g-0">
         <div class="col-md-6 position-relative cam-container d-flex flex-column justify-content-center">
-          <video  class="text-center position-relative cam-container__video" id="video"  autoplay></video>
-          <img src="../img/camara.png" class="img-fluid rounded-start position-absolute cam-container__img" 
+          <video  class="text-center position-relative cam-container__video" id="inputVideo" onloadeddata="onPlay(this)" autoplay muted playsinline></video>
+          <!-- <video onloadeddata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video> -->
+          <img src="../img/camara.png" class="img-fluid rounded-start position-absolute cam-container__img img-camara-minimizada" 
           id="img-camara" alt="Imagen de una camara">
         </div>
         <div class="col-md-6">
@@ -56,17 +57,12 @@
                 <input type="text" class="form-control fs-5" id="nombre-estudiante" placeholder="Escriba el nombre de la dependencia">
                 <label for="nombre-estudiante">Nombre completo</label>
               </div>
-  
-              <div class="form-floating mb-2 incrementum">
-                <input type="number" class="form-control fs-5" id="codigo-profesor" placeholder="Escriba su código">
-                <label for="codigo-profesor">Código de profesor</label>
-              </div>
             
               <!-- Moneda mario bros -->
-              <button class="boton-camara incrementum" id="boton-camara">
+              <!-- <button class="boton-camara incrementum" id="boton-camara">
                 <span class="boton-camara__texto">Tomar Foto </span>
                 <i class="bi bi-camera-fill icon-margin" id="icon-registrar"></i>
-              </button>
+              </button> -->
               <button class="boton circular incrementum" id="boton-registrar">
                 <span>Registrar </span>
                 <i class="bi bi-person-add" id="icon-registrar"></i>
@@ -82,36 +78,25 @@
 
 
   <!-- Pie de página -->
-  <footer>
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div id="success-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-exitoso">
-          <i class="bi bi-person-check-fill"></i>
-          <strong class="me-auto margin-left">Registro exitoso!</strong>
-          <small>Ahora</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body" id="success-msg">
-          Mensaje default
-        </div>
-      </div>
-    </div>
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div id="warning-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-warning bg-gradient">
-          <i class="bi bi-exclamation-triangle-fill"></i>
-          <strong class="me-auto margin-left">Algo salio mal!</strong>
-          <small>Ahora</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body" id="warning-msg">
-          Advertencia
-        </div>
-      </div>
-    </div>
+  <footer>  
   </footer>
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-exitoso" id="toast-header">
+            <i class="bi bi-person-check-fill" id="toast-icono"></i>
+            <strong class="me-auto margin-left" id="toast-titulo">Registro exitoso!</strong>
+            <small>Ahora</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toast-msg">
+            Mensaje default
+        </div>
+      </div>
+  </div>
   <!-- Bootstrap js -->
-  <script src="script.js"></script>
+  <script src="../util/toast.js"></script>
+  <script src="script.js"></script> 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
