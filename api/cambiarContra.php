@@ -17,7 +17,6 @@ try{
     $idProfe = $_POST["idprofe"];
     $oldpassword = $_POST["vieja"];
     $newpassword= $_POST["nueva"];
-    
     if(autenticarPassword($conn, $oldpassword, $idProfe) == 1){
         $passwordHasheado = password_hash($newpassword, PASSWORD_DEFAULT);
         $query = sprintf("update encargado set passw = '%s' where idEncargado = %s ",
