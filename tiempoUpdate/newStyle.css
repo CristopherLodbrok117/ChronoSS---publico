@@ -262,11 +262,11 @@ tr:nth-child(even) {
 
 .boton.circular:hover span {
 
-  transform: translateX(-5vw);
+  transform: translateX(-15vw);
 }
 
 .boton.circular:hover i{
-  transform: translateX(4vw);
+  transform: translateX(15vw);
 }
 
 .boton.circular::after {
@@ -371,11 +371,11 @@ footer > p{
 @media screen and (width < 992px) {
 
   .boton.circular:hover span {
-    transform: translateX(-8vw);
+    transform: translateX(-25vw);
   }
   
   .boton.circular:hover i{
-    transform: translateX(8vw);
+    transform: translateX(25vw);
   }
 
   table, th {
@@ -439,11 +439,11 @@ footer > p{
   }
 
   .boton.circular:hover span {
-    transform: translateX(-5vw);
+    transform: translateX(-20vw);
   }
   
   .boton.circular:hover i{
-    transform: translateX(5vw);
+    transform: translateX(20vw);
   }
 
 }
@@ -463,11 +463,11 @@ footer > p{
   }
 
   .boton.circular:hover span {
-    transform: translateX(-5vw);
+    transform: translateX(-20vw);
   }
   
   .boton.circular:hover i{
-    transform: translateX(5vw);
+    transform: translateX(20vw);
   }
 
   .seccion-camara__circulo::before {
