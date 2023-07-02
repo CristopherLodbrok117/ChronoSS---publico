@@ -4,8 +4,8 @@
 const backendServer = "https://chronoss.mx/api";
 
 const tablaActivos = document.querySelector("table");
-const codigoInput = document.querySelector("#codigo-input");
-const botonEntrar = document.querySelector("#boton-entrar");
+// const codigoInput = document.querySelector("#codigo-input");
+// const botonEntrar = document.querySelector("#boton-entrar");
 let prestadoresData = [];
 let globalChecandoExcess = false;
 updateActivos();
