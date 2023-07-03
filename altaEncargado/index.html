@@ -34,47 +34,62 @@
   <!-- Formulario -->
   <main>
     <h1 class="text-center" id="titulo">Registrar encargado</h1>
-    <div class="signup-container col-xs-10 col-lg-8 d-flex flex-column">
-      <div class="form-floating mb-2 ">
-        <input type="number" class="form-control fs-5" id="codigo" placeholder="Escriba su código">
-        <label for="floatingInput">
-          <i class="bi bi-code"></i>
-          <span>Código</span>
-        </label>
+
+    <div class="card mb-3 container" >
+      <div class="row g-0">
+        <div class="col-md-6 position-relative cam-container d-flex flex-column justify-content-center area-img">
+          <video  class="text-center position-relative cam-container__bg incrementum" id="img-bg"  autoplay></video>
+          <img src="../img/profe.png" class="img-fluid rounded-start position-absolute cam-container__img" id="img-camara" alt="Imagen de un candado">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+
+            <fieldset class="signup-container col-xs-10 container d-flex flex-column">
+              <div class="form-floating mb-2 incrementum">
+                <input type="number" class="form-control fs-5" id="codigo" placeholder="Escriba su código">
+                <label for="floatingInput">
+                  <i class="bi bi-code"></i>
+                  <span>Código</span>
+                </label>
+              </div>
+              <div class="form-floating mb-2 incrementum">
+                <input type="password" class="form-control fs-5" id="password" placeholder="Escriba su contraseña">
+                <label for="floatingPassword">
+                  <i class="bi bi-key-fill"></i>
+                  <span>Contraseña</span>
+                </label>
+              </div>
+              <div class="form-floating mb-2 incrementum">
+                <input type="text" class="form-control fs-5" id="dependencia" placeholder="Escriba el nombre de la dependencia">
+                <label for="floatingInput">
+                  <i class="bi bi-house-door-fill"></i>
+                  <span>Dependencia</span>
+                  
+                </label>
+              </div>
+              <div class="form-floating mb-2 incrementum">
+                <input type="text" class="form-control fs-5" id="nombre-encargado" placeholder="Escriba su Nombre">
+                <label for="floatingPassword">
+                  <i class="bi bi-person-plus-fill"></i>
+                  <span>Encargado</span>
+                </label>
+              </div>
+              <div class="form-floating mb-2  incrementum">
+                <input type="email" class="form-control fs-5" id="email" placeholder="Escriba su correo">
+                <label for="floatingInput">
+                  <i class="bi bi-envelope-at-fill"></i>
+                  <span>Correo</span>
+                </label>
+              </div>
+              <button class="boton circular  incrementum" id="boton-registrar">
+                <span>Registrar</span>
+                <i class="bi bi-arrow-right" id="icon-registrar"></i>
+              </button>
+
+            </fieldset>
+          </div>
+        </div>
       </div>
-      <div class="form-floating mb-2">
-        <input type="password" class="form-control fs-5" id="password" placeholder="Escriba su contraseña">
-        <label for="floatingPassword">
-          <i class="bi bi-key-fill"></i>
-          <span>Contraseña</span>
-        </label>
-      </div>
-      <div class="form-floating mb-2">
-        <input type="text" class="form-control fs-5" id="dependencia" placeholder="Escriba el nombre de la dependencia">
-        <label for="floatingInput">
-          <i class="bi bi-house-door-fill"></i>
-          <span>Dependencia</span>
-          
-        </label>
-      </div>
-      <div class="form-floating mb-2">
-        <input type="text" class="form-control fs-5" id="nombre-encargado" placeholder="Escriba su Nombre">
-        <label for="floatingPassword">
-          <i class="bi bi-person-plus-fill"></i>
-          <span>Encargado</span>
-        </label>
-      </div>
-      <div class="form-floating mb-2">
-        <input type="email" class="form-control fs-5" id="email" placeholder="Escriba su correo">
-        <label for="floatingInput">
-          <i class="bi bi-envelope-at-fill"></i>
-          <span>Correo</span>
-        </label>
-      </div>
-      <button class="boton circular" id="boton-registrar">
-        <span>Registrar</span>
-        <i class="bi bi-arrow-right" id="icon-registrar"></i>
-      </button>
     </div>
   </main>
 
