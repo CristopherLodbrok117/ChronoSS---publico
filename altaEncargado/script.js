@@ -27,7 +27,7 @@ document.querySelector("#boton-registrar").addEventListener("click", function() 
   xhttp.onreadystatechange  = function() {
     if(this.readyState == 4 && this.status == 200) {
       // let respuesta = xhttp.responseText;
-      mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, `Para completar su registro dar click al link que se le envio a su correo`, ICONO_SUCCESS);
+      mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, `Para completar su registro inngrese al enlace que se le envio a su correo`, ICONO_SUCCESS);
     }
   };
   xhttp.open("POST", `${backendServer}/altaEncargado.php`, true);
