@@ -1,34 +1,13 @@
-//checkAuth();
-//const backendServer = "http://148.202.152.33/Servicio_Social";
-//const backendServer = "http://127.0.0.1:5000";
+checkAuth();
 const backendServer = "https://chronoss.mx/api";
+//const backendServer = "http://localhost:8000";
 
 const tablaActivos = document.querySelector("table");
-// const codigoInput = document.querySelector("#codigo-input");
-// const botonEntrar = document.querySelector("#boton-entrar");
 let prestadoresData = [];
 let globalChecandoExcess = false;
+
 updateActivos();
 setInterval(renderTime, 1000);
-
-/*
-codigoInput.addEventListener("input", function(){
-    let curCodigo = codigoInput.value;
-    const encontrado = prestadoresData.findIndex(prest => prest.codigo==curCodigo);
-    if(encontrado >= 0){
-        botonEntrar.textContent = "Salir";
-        botonEntrar.style.backgroundColor = "#ff8080";
-    }else{
-        botonEntrar.textContent = "Entrar";
-        botonEntrar.style.backgroundColor = "#b3ffb3";
-    }
-});
-
-codigoInput.addEventListener("keyup", event => {
-    if(event.key !== "Enter") return;
-    botonEntrar.click();
-    event.preventDefault();
-});*/
 
 function updateActivos(){
     let token = localStorage.getItem("terminal_token");
@@ -55,7 +34,6 @@ function updateActivos(){
 }
 
 
-
 function renderTime(){
     prestadoresData.forEach(prestador => {
         prestador.curTime.setSeconds(prestador.curTime.getSeconds() + 1);
@@ -79,39 +57,7 @@ function renderTime(){
         }
     });
 }
-/*
-document.querySelector("#boton-entrar").addEventListener('click', function(){
-    
-    const senddata = new FormData();
-    let codigo = document.querySelector("#codigo-input").value;
-    if(codigo == "") return;
-    document.querySelector("#codigo-input").value = "";
-    senddata.append("codigo", codigo);
-    senddata.append("token", localStorage.getItem('terminal_token'));
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let respuesta = parseInt(xhttp.responseText);
-            if( ! isNaN(respuesta)){
-                let horas = respuesta/3600;
-                let horasFloor = Math.floor(horas);
-                let minutos = horas - horasFloor;
-                minutos = Math.floor(minutos * 60);
-
-                alert(`Sesión finalizada con éxito. \nHoras acumuladas  ${horasFloor} : ${minutos}`);
-                botonEntrar.textContent = "Entrar";
-                botonEntrar.style.backgroundColor = "#b3ffb3";
-            }
-            updateActivos();
-        }
-    };
-    xhttp.open("POST", `${backendServer}/registrarTiempo`, true);
-    xhttp.send(senddata);
-    codigoInput.focus();
-
-});
-*/
 function checkAuth(){
     let token = localStorage.getItem('terminal_token');
     if(token == null || token == ""){

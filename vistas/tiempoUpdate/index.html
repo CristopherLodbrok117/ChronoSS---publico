@@ -1,75 +1,154 @@
 <!--QUE BUSCAS AQUI??? 🤨-->
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"> 
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de horas</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- Face API -->
     <script src="face-api.min.js"></script>
 </head>
 <body>
-
-    <div id="banner-container">
-        <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
-        <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
-    </div>
-
-    <h1>Bienvenido al sistema de registro de horas</h1>
-    <!--
-    <div id="user-input">
-        <input type="number" id="codigo-input" placeholder="Código">
-        <button id="boton-entrar">Entrar</button>
-    </div>
-    -->
-    <div id="camera-input">
-        <button id="camara-registrar">📷</button>
-    </div>
-
-    <div id="webcamContainer">
-    </div>
-
-
-    <div id="tabla-mensaje" style="align-items:flex-start">
-        <div id="reglas">
-            <p>PUNTOS A TOMAR EN CUENTA:</p>
-            <ul>
-                <li>
-                    Sesiones con más de 8 horas de duración no serán registradas por el sistema.
-                </li>
-                <li>
-                    Todos los registros son para uso exclusivo de esta dependencia.
-                </li>
-                <li>
-                    Las horas extra no se deben registrar por medio de este sitio.
-                </li>
-            </ul>
-            <!--
-            <div style="display: flex;justify-content:center;margin-bottom:100px;margin-top:-20px;">
-                <img src="../img/qr-code.jpg" width="200" height="200">
-            </div>
-            -->
+    <!-- Encabezado -->
+    <header>
+        <div id="banner-container">
+            <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
+            <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
         </div>
-        <div id="activos-container">
-            <table>
-                <thead>
-                    <th colspan="2">Prestadores en jornada</th>
-                    <th>Tiempo</th>
-                </thead>
-            </table>
+    </header>
+    
+    <!-- Principal -->
+    <main>
+        <h1 class="titulo text-center incrementum">Bienvenido al sistema de registro de horas</h1>
+        <div class="form-floating mb-2 incrementum col-lg-6 d-flex container justify-content-center">
+            <input type="number" class="form-control fs-5" id="codigo-input" placeholder="Código">
+            <label for="codigo-input inc">Código</label>
         </div>
-    </div>
+        <div class="botones-container d-flex container-fluid justify-content-center">
+            <button id="boton-camara" class="col-lg-6 container boton circular incrementum">
+                <span>Camara </span>
+                <i class="bi bi-camera-fill icon-margin"></i>
+            </button>    
+            <!-- <button id="boton-entrar" class="col-lg-3 col-6 boton circular incrementum">
+                <span id="texto-boton-entrar">Entrar </span>
+                <i class="bi bi-check2-circle icon-margin" ></i>
+            </button> -->
+        </div>
 
+        
+
+        <div class="contenedor-secciones">
+
+            <!-- Sección de reconocimiento facial -->
+            <section class="seccion-camara">
+                <div class="seccion-camara__container container d-flex justify-content-center align-items-center">
+                    <div class="seccion-camara__card">
+                        <!-- <video  id="video-input"  autoplay></video> -->
+                        <!-- <div class="seccion-camara__circulo text-center" id="video"></div> -->
+                        <!-- <video  class="seccion-camara__circulo text-center" id="video"  autoplay></video> -->
+                        <div class="seccion-camara__circulo text-center" id="webcamContainer">
+                            <!-- <video  class="videotso" id="video"  autoplay></video> -->
+                        </div>
+                        <img class="seccion-camara__img" id="img-camara" src="../img/camara.png" alt="Imagen de una camara">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seccion de tabla de datos -->
+            <section class="seccion-horas">
+
+                <div id="user-input" class="container-fluid d-flex justify-content-center align-items-center">
+                    <div id="activos-container" class="container-fluid">
+                        <table class="container-fluid">
+                            <thead class="encabezado">
+                                <th>Prestadores en jornada</th>
+                                <th class="second-son"></th>
+                                <th>Tiempo</th>
+                            </thead>
+                            <tr class="tiempo-vivo-row colorium">
+                                <td>210364978</td>
+                                <td class="col-nombre">Cristoppher Alexis</td>
+                                <td class="tiempo-vivo" >14:43</td>
+                            </tr>
+                            <tr class="tiempo-vivo-row  colorium">
+                                <td>210364978</td>
+                                <td class="col-nombre">Jared Letus</td>
+                                <td class="tiempo-vivo" >-00:00</td>
+                            </tr>
+                            <tr class="tiempo-vivo-row  colorium">
+                                <td>210364978</td>
+                                <td class="col-nombre">El bromas</td>
+                                <td class="tiempo-vivo" >130:18</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de reglas -->
+            <section class="seccion-reglas">
+                
+                <div id="reglas" class="container">
+                    <h2 class="titulo text-center">PUNTOS A TOMAR EN CUENTA:</h2>
+                    <ul>
+                        <li class="incrementum">
+                            Sesiones con más de 8 horas de duración no serán registradas por el sistema.
+                        </li>
+                        <li class="incrementum">
+                            Todos los registros son para uso exclusivo de esta dependencia.
+                        </li>
+                        <li class="incrementum">
+                            Las horas extra no se deben registrar por medio de este sitio.
+                        </li>
+                    </ul>
+
+                    <div class="qr-container incrementum">
+                        <img src="../img/qr-code.jpg" class="qr-img">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
     <footer>
         <p>© UDG All rights reserved</p>
         <p>|</p>
         <p>Powered by [_cuceiMobile]</p>
     </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-exitoso" id="toast-header">
+                <i class="bi bi-person-check-fill" id="toast-icono"></i>
+                <strong class="me-auto margin-left" id="toast-titulo">Registro exitoso!</strong>
+                <small>Ahora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast-msg">
+                Mensaje default
+            </div>
+        </div>
+    </div>
+        
+    <script src="../util/toast.js"></script>
     <script src="script.js"></script>
     <script src="camara.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

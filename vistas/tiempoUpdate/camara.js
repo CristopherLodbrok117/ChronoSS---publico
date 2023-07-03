@@ -1,4 +1,4 @@
-const CLASE_IMG_MINIMIZADA = "img-camara-minimizada";
+const CLASE_IMG_MINIMIZADA = "img-camara-minimizada";  
 
 const btnCamRegistrar = document.querySelector("#boton-camara");
 const streamContainer = document.querySelector("#webcamContainer");
@@ -34,17 +34,17 @@ async function abrirCamara() {
     const stream = await navigator.mediaDevices.getUserMedia({ video : {} });
     document.querySelector("#inputVideo").srcObject = stream;
     streamContainer.style.visibility = "visible";
-    mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, "Detectando chavales", ICONO_CAMARA);
+    mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, "Haciendo reconocimiento facial", ICONO_CAMARA);
 }
 
 async function onPlay(){
     if(!camaraAbierta) return;
     const videoFeed = document.querySelector("#inputVideo");
-    const canva = document.querySelector("#overlay");
 
     let fullFaceDescriptions = await faceapi.detectAllFaces(videoFeed)
     .withFaceLandmarks()
     .withFaceDescriptors();
+    
     if(fullFaceDescriptions.length > 0){
         detectado = true;
         rasgos = [...fullFaceDescriptions[0].descriptor].map( e =>  Number(e.toFixed(4)) );
@@ -52,14 +52,8 @@ async function onPlay(){
     }else{
         rasgos = [];
     }
-    /*
-    const dims = faceapi.matchDimensions(canva, videoFeed, true);
-    const resizedResults = faceapi.resizeResults(fullFaceDescriptions, dims);
 
-    faceapi.draw.drawDetections(canva, resizedResults);
-    faceapi.draw.drawFaceLandmarks(canva, resizedResults);
-    */
-   if(!detectado)
+    if(!detectado)
         setTimeout(() => onPlay(), 1000);
 }
 
@@ -71,34 +65,25 @@ function callServer(){
             respuesta.sort((a, b) => {
                 return a.delta - b.delta;
             });
-
-
             console.log(respuesta);
             mejorCandidato = respuesta[0];
             if(mejorCandidato.delta > 0.3){
-                document.querySelector("#webcam-label").textContent = "Quien te conoce?";
-                detectado = false;
+                document.querySelector("#webcam-label").textContent = "DESCONOCIDO";
+                setTimeout(removeCam, 1000);
             }else{
                 document.querySelector("#webcam-label").textContent = mejorCandidato.nombre;
-//                updateActivos();
                 setTimeout(removeCam, 1000);
                 const senddata = new FormData();
                 let codigo = mejorCandidato.idprestador;
                 codigoInput.value = codigo;
                 senddata.append("codigo", codigo);
+                senddata.append("token", localStorage.getItem("terminal_token"));
                 
                 var xhttp2 = new XMLHttpRequest();
                 xhttp2.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        let respuesta = parseInt(xhttp2.responseText);
-                        if( ! isNaN(respuesta)){
-                            let horas = respuesta/3600;
-                            let horasFloor = Math.floor(horas);
-                            let minutos = horas - horasFloor;
-                            minutos = Math.floor(minutos * 60);
-                        }
                         updateActivos();
-                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Se detecto a un chaval", ICONO_SUCCESS);
+                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Terminando reconocimiento facial", ICONO_SUCCESS);
                     }
                 };
                 xhttp2.open("POST", `${backendServer}/registrarTiempo.php`, true);
@@ -107,13 +92,13 @@ function callServer(){
         }
     };
     xhttp.open("GET", `${backendServer}/reconocerCara.php?idprofe=${localStorage.getItem("idprofe")}&rasgos=${JSON.stringify(rasgos)}&token=${localStorage.getItem("terminal_token")}`, true);
-    xhttp.send(""); 
+    xhttp.send("");  
 }
 
-document.querySelector("#boton-entrar").addEventListener("click", function() {
-    removeCam();
-    codigoInput.value = "210397316";
-});
+// document.querySelector("#boton-entrar").addEventListener("click", function() {
+//     removeCam();
+//     // codigoInput.value = "210397316";
+// });
 
 
 function removeCam(){
@@ -122,7 +107,7 @@ function removeCam(){
     streamContainer.innerHTML = "";
     // streamContainer.style.visibility = "hidden"; // Si lo descomento elimina parte de la animación de la cam
     maximizarImagenCamara();
-    mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Se detecto a un chaval", ICONO_SUCCESS);
+    // mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Se detecto a un chaval", ICONO_SUCCESS);
 }
 
 
@@ -130,21 +115,20 @@ function removeCam(){
 
 function minimizarImagenCamara () {
     // camaraActiva = true;
-    if(imgCamara.classList.contains(CLASE_IMG_MINIMIZADA)){
-        console.log("Imagen de camara ya minimizada");
-        return;
-    }
+    // if(imgCamara.classList.contains(CLASE_IMG_MINIMIZADA)){
+    //     console.log("Imagen de camara ya minimizada");
+    //     return;
+    // }
     imgCamara.classList.add(CLASE_IMG_MINIMIZADA);
-    console.log("Se minimizo la imagen de la camara");
+    // console.log("Se minimizo la imagen de la camara");
 
 }
 
 function maximizarImagenCamara () {
-    // camaraActiva = false;
-    if(!imgCamara.classList.contains(CLASE_IMG_MINIMIZADA)){
-        console.log("Imagen de camara NO minimizada");
-        return;
-    }
+    // // camaraActiva = false;
+    // if(!imgCamara.classList.contains(CLASE_IMG_MINIMIZADA)){
+    //     return;
+    // }
     imgCamara.classList.remove(CLASE_IMG_MINIMIZADA);
-    console.log("Se maximizo la imagen de la camara");
+    // console.log("Se maximizo la imagen de la camara");
 }
