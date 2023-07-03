@@ -1,0 +1,42 @@
+<!--QUE BUSCAS AQUI??? 🤨-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de horas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="face-api.min.js"></script>
+</head>
+<body>
+
+    <div id="banner-container">
+        <img src="../img/logo-udg-cucei.png" id="udg-cucei-logo">
+        <img src="../img/chronoss_logo.png" id="cuceimobilelogo">
+    </div>
+
+    <h1>Registro de nuevo prestador</h1>
+
+    <div id="user-input">
+        <input type="number" id="codigo-input" placeholder="Código">
+        <input type="text" id="nombre-input" placeholder="Nombre">
+        <div id="webcamContainer">
+            <video onloadeddata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
+            <canvas id="overlay"></canvas>
+        </div>
+
+        <button id="boton-entrar">Registrar</button>
+    </div>
+
+    <footer>
+        <p>© UDG All rights reserved</p>
+        <p>|</p>
+        <p>Powered by [_cuceiMobile]</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
