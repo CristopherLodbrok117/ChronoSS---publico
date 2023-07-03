@@ -34,8 +34,6 @@ async function abrirCamara() {
 async function onPlay(){
     if(!camaraAbierta) return;
     const videoFeed = document.querySelector("#inputVideo");
-    const canva = document.querySelector("#overlay");
-
     let fullFaceDescriptions = await faceapi.detectAllFaces(videoFeed)
     .withFaceLandmarks()
     .withFaceDescriptors();
@@ -46,13 +44,6 @@ async function onPlay(){
     }else{
         rasgos = [];
     }
-    /*
-    const dims = faceapi.matchDimensions(canva, videoFeed, true);
-    const resizedResults = faceapi.resizeResults(fullFaceDescriptions, dims);
-
-    faceapi.draw.drawDetections(canva, resizedResults);
-    faceapi.draw.drawFaceLandmarks(canva, resizedResults);
-    */
    if(!detectado)
         setTimeout(() => onPlay(), 1000);
 }
@@ -65,31 +56,22 @@ function callServer(){
             respuesta.sort((a, b) => {
                 return a.delta - b.delta;
             });
-
-
             console.log(respuesta);
             mejorCandidato = respuesta[0];
-            if(mejorCandidato.delta > 0.3){
-                document.querySelector("#webcam-label").textContent = "Quien te conoce?";
-                detectado = false;
+            if(mejorCandidato.delta > 0.35){
+                document.querySelector("#webcam-label").textContent = "DESCONOCIDO";
+                setTimeout(removeCam, 1000);
             }else{
                 document.querySelector("#webcam-label").textContent = mejorCandidato.nombre;
-//                updateActivos();
                 setTimeout(removeCam, 1000);
                 const senddata = new FormData();
                 let codigo = mejorCandidato.idprestador;
                 senddata.append("codigo", codigo);
+                senddata.append("token", localStorage.getItem("terminal_token"));
                 
                 var xhttp2 = new XMLHttpRequest();
                 xhttp2.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        let respuesta = parseInt(xhttp2.responseText);
-                        if( ! isNaN(respuesta)){
-                            let horas = respuesta/3600;
-                            let horasFloor = Math.floor(horas);
-                            let minutos = horas - horasFloor;
-                            minutos = Math.floor(minutos * 60);
-                        }
                         updateActivos();
                     }
                 };
@@ -107,5 +89,4 @@ function removeCam(){
     detectado = false;
     streamContainer.innerHTML = "";
     streamContainer.style.visibility = "hidden";
-
 }
