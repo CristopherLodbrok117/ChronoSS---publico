@@ -275,11 +275,11 @@ background: linear-gradient(180deg, rgba(255,214,0,0.8603816526610644) 0%, rgba(
 
 .contenedor-links {
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 footer {
-  position: relative;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -287,6 +287,8 @@ footer {
   color: white;
   display: flex;
   justify-content: center;
+
+  z-index: 300;
 }
 
 footer > p{
@@ -411,7 +413,9 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
     content: url('../img/smartphone.png');
   }
   
-  
+  .contenedor-links {
+    margin-bottom: 95px;
+  }
 }
 
 @media screen and (width < 400px) {
