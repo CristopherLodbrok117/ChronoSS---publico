@@ -67,8 +67,9 @@ function callServer(){
             });
             console.log(respuesta);
             mejorCandidato = respuesta[0];
-            if(mejorCandidato.delta > 0.3){
-                document.querySelector("#webcam-label").textContent = "DESCONOCIDO";
+            if(mejorCandidato.delta > 0.35){
+                //document.querySelector("#webcam-label").textContent = "DESCONOCIDO";
+                mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Desconocido", ICONO_SUCCESS);
                 setTimeout(removeCam, 1000);
             }else{
                 document.querySelector("#webcam-label").textContent = mejorCandidato.nombre;
