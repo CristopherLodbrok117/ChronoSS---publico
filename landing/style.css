@@ -1,0 +1,111 @@
+.img-with-text {
+  text-align: justify;
+}
+
+.img-with-text img {
+  display: block;
+  margin: 0 auto;
+}
+
+:root {
+  --boton-bg-hover: greenyellow;
+  --boton-bg:  #141414;
+  --boton-cam-bg: #fff;
+  --boton-cam-color: #f00;
+  --boton-color-circulo: #f00;
+}
+body {
+  margin: 0;
+  background-image: radial-gradient(rgb(171, 171, 171) 1px, transparent 0);
+  background-size: 40px 40px;
+  background-position: -19px -19px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: rgba(240,240,240,1);
+}
+
+#body-container{
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(0,0,5);
+  background: linear-gradient(90deg, rgba(114,114,114,1) 0%, rgba(40,40,40,1) 47%, rgba(0,0,0,1) 100%);
+}
+
+#banner-container{
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(114,114,114,1) 0%, rgba(40,40,40,1) 47%, rgba(0,0,0,1) 100%);
+}
+
+#text-justify{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#subtitle{
+  text-align: center;
+  text-justify: inter-word;
+  text-decoration-line: overline;
+  text-decoration-color: red;
+}
+
+#logo{
+  max-width: 230px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+#card-container {
+  background-color: rgba(245, 245, 245, 1);
+  opacity: .1;
+  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid #f1f2f3;
+}
+
+.zoom-card{
+  transition: transform .2s; /* Animation */
+}
+
+.zoom-card:hover {
+  transform: scale(1.05);
+  border-color: rgb(55, 0, 255);
+}
+
+#udg-cucei-logo{
+  min-width: 230px;
+  max-width: 500px;
+  filter: invert(0%);
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+#cuceimobilelogo{
+  max-width: 430px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+footer {
+  
+  left: 0;
+  bottom: 0;
+  top: 25px;
+  width: 100%;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+footer > p{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
