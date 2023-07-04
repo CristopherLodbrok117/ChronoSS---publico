@@ -1,8 +1,12 @@
-const btnCamRegistrar = document.querySelector("#camara-registrar");
+const CLASE_IMG_MINIMIZADA = "img-camara-minimizada";  
+
+const btnCamRegistrar = document.querySelector("#boton-camara");
 const streamContainer = document.querySelector("#webcamContainer");
+const imgCamara = document.querySelector("#img-camara"); // Animación de la camara
+const codigoInput = document.querySelector("#codigo-input");
 let camaraAbierta = false;
 let rasgos = [];
-let detectado = false;
+let detectado = false; 
 
 
 ( async () => {
@@ -13,10 +17,10 @@ let detectado = false;
 
 btnCamRegistrar.addEventListener("click", function(){
     let camModule = `
-        <video onloadeddata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
-        <canvas id="overlay"></canvas>
+        <video onloadeddata="onPlay(this)" id="inputVideo" autoplay muted playsinline class="videotso"></video>
+        
         <p id="webcam-label"></p>
-        <span id="boton-cerrar" onclick="removeCam()">X</span>
+        
     `;
     streamContainer.innerHTML += camModule;
     abrirCamara();
@@ -26,17 +30,21 @@ btnCamRegistrar.addEventListener("click", function(){
 
 async function abrirCamara() {
     camaraAbierta = true;
+    minimizarImagenCamara();
     const stream = await navigator.mediaDevices.getUserMedia({ video : {} });
     document.querySelector("#inputVideo").srcObject = stream;
     streamContainer.style.visibility = "visible";
+    mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, "Haciendo reconocimiento facial", ICONO_CAMARA);
 }
 
 async function onPlay(){
     if(!camaraAbierta) return;
     const videoFeed = document.querySelector("#inputVideo");
+
     let fullFaceDescriptions = await faceapi.detectAllFaces(videoFeed)
     .withFaceLandmarks()
     .withFaceDescriptors();
+    
     if(fullFaceDescriptions.length > 0){
         detectado = true;
         rasgos = [...fullFaceDescriptions[0].descriptor].map( e =>  Number(e.toFixed(4)) );
@@ -44,7 +52,8 @@ async function onPlay(){
     }else{
         rasgos = [];
     }
-   if(!detectado)
+
+    if(!detectado)
         setTimeout(() => onPlay(), 1000);
 }
 
@@ -58,7 +67,7 @@ function callServer(){
             });
             console.log(respuesta);
             mejorCandidato = respuesta[0];
-            if(mejorCandidato.delta > 0.35){
+            if(mejorCandidato.delta > 0.3){
                 document.querySelector("#webcam-label").textContent = "DESCONOCIDO";
                 setTimeout(removeCam, 1000);
             }else{
@@ -66,6 +75,7 @@ function callServer(){
                 setTimeout(removeCam, 1000);
                 const senddata = new FormData();
                 let codigo = mejorCandidato.idprestador;
+                codigoInput.value = codigo;
                 senddata.append("codigo", codigo);
                 senddata.append("token", localStorage.getItem("terminal_token"));
                 
@@ -73,6 +83,7 @@ function callServer(){
                 xhttp2.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         updateActivos();
+                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Terminando reconocimiento facial", ICONO_SUCCESS);
                     }
                 };
                 xhttp2.open("POST", `${backendServer}/registrarTiempo.php`, true);
@@ -81,12 +92,43 @@ function callServer(){
         }
     };
     xhttp.open("GET", `${backendServer}/reconocerCara.php?idprofe=${localStorage.getItem("idprofe")}&rasgos=${JSON.stringify(rasgos)}&token=${localStorage.getItem("terminal_token")}`, true);
-    xhttp.send(""); 
+    xhttp.send("");  
 }
+
+// document.querySelector("#boton-entrar").addEventListener("click", function() {
+//     removeCam();
+//     // codigoInput.value = "210397316";
+// });
+
 
 function removeCam(){
     camaraAbierta = false;
     detectado = false;
     streamContainer.innerHTML = "";
-    streamContainer.style.visibility = "hidden";
+    // streamContainer.style.visibility = "hidden"; // Si lo descomento elimina parte de la animación de la cam
+    maximizarImagenCamara();
+    // mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Se detecto a un chaval", ICONO_SUCCESS);
+}
+
+
+// Animación de la camara
+
+function minimizarImagenCamara () {
+    // camaraActiva = true;
+    // if(imgCamara.classList.contains(CLASE_IMG_MINIMIZADA)){
+    //     console.log("Imagen de camara ya minimizada");
+    //     return;
+    // }
+    imgCamara.classList.add(CLASE_IMG_MINIMIZADA);
+    // console.log("Se minimizo la imagen de la camara");
+
+}
+
+function maximizarImagenCamara () {
+    // // camaraActiva = false;
+    // if(!imgCamara.classList.contains(CLASE_IMG_MINIMIZADA)){
+    //     return;
+    // }
+    imgCamara.classList.remove(CLASE_IMG_MINIMIZADA);
+    // console.log("Se maximizo la imagen de la camara");
 }

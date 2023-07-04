@@ -3,10 +3,9 @@ const backendServer = "https://chronoss.mx/api";
 //const backendServer = "http://localhost:8000";
 
 const tablaActivos = document.querySelector("table");
-const codigoInput = document.querySelector("#codigo-input");
-const botonEntrar = document.querySelector("#boton-entrar");
 let prestadoresData = [];
 let globalChecandoExcess = false;
+
 updateActivos();
 setInterval(renderTime, 1000);
 
@@ -22,9 +21,9 @@ function updateActivos(){
                 prestador.curTime = new Date(null);
                 prestador.curTime.setSeconds(prestador.timestamp);
                 console.log(prestador.timestamp);
-                tablaActivos.innerHTML += ` <tr class="tiempo-vivo-row">
+                tablaActivos.innerHTML += ` <tr class="tiempo-vivo-row colorium">
                                                 <td>${prestador.codigo}</td>
-                                                <td>${prestador.nombre}</td>
+                                                <td class="col-nombre">${prestador.nombre}</td>
                                                 <td class="tiempo-vivo" prestador="${prestador.codigo}">${prestador.curTime.toISOString().slice(11, 19)}</td>
                                             </tr>`;
             });
@@ -33,7 +32,6 @@ function updateActivos(){
     xhttp.open("GET", `${backendServer}/getActivos.php?token=${token}&idprofe=${idprofe}`, true);
     xhttp.send(null);
 }
-
 
 
 function renderTime(){

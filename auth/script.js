@@ -1,16 +1,11 @@
 const backendServer = "https://chronoss.mx/api";
-//const backendServer = "http://localhost:8000";
 
 
-document.querySelector("#boton-autorizar").addEventListener("click", function(){
+document.querySelector("#boton-autorizar").addEventListener("click", function(){ 
     let idProfe = document.querySelector("#id-profe").value;
     let givenPassword = document.querySelector("#password-profe").value;
     let tipo = document.querySelector("#tipo-combo").value;
 
-    if(idProfe == '' || givenPassword == '' || tipo == '') {
-        mostrarToast(TITULO_WARNING, BACKGROUND_WARNING, "Faltan campos por llenar", ICONO_WARNING);
-        return;
-    }
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -31,7 +26,5 @@ document.querySelector("#boton-autorizar").addEventListener("click", function(){
     xhttp.open("GET", `${backendServer}/grantToken.php?idprofe=${idProfe}&password=${givenPassword}&tipo=${tipo}`, true);
     xhttp.send(null);
 });
-
-
 
 
