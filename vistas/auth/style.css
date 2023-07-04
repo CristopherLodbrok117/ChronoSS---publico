@@ -273,6 +273,11 @@ background: linear-gradient(180deg, rgba(255,214,0,0.8603816526610644) 0%, rgba(
   transition: 1s all;
 }
 
+.contenedor-links {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 footer {
   position: relative;
   left: 0;
