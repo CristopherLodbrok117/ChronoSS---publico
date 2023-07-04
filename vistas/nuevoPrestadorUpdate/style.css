@@ -62,7 +62,7 @@ background: linear-gradient(180deg, rgba(20,20,20,0.5046393557422969) 0%, rgba(2
   
   transform: translate(-50%, -50%);
   
-  /* pointer-events: none; */
+  pointer-events: none;
   transition: .5s;
 }
 
@@ -224,6 +224,11 @@ background: linear-gradient(180deg, rgba(20,20,20,0.5046393557422969) 0%, rgba(2
   top: 90%;
   height: 40%;
   transition: 1s all;
+}
+
+.contenedor-links {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 footer {
