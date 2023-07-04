@@ -226,6 +226,22 @@ background: linear-gradient(180deg, rgba(20,20,20,0.5046393557422969) 0%, rgba(2
   transition: 1s all;
 }
 
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+footer > p{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .margin-left {
   margin-left: 5px;
 }
