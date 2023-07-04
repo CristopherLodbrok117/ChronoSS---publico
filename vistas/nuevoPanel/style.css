@@ -375,6 +375,22 @@ td, th {
     height: 40%;
     transition: 1s all;
   }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  footer > p{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   
   .margin-left {
     margin-left: 5px;
