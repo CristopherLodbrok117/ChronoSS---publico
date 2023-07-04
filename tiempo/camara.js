@@ -76,7 +76,7 @@ function callServer(){
                 setTimeout(removeCam, 1000);
                 const senddata = new FormData();
                 let codigo = mejorCandidato.idprestador;
-                codigoInput.value = codigo;
+                //codigoInput.value = codigo;
                 senddata.append("codigo", codigo);
                 senddata.append("token", localStorage.getItem("terminal_token"));
                 
@@ -84,7 +84,7 @@ function callServer(){
                 xhttp2.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         updateActivos();
-                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, "Terminando reconocimiento facial", ICONO_SUCCESS);
+                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, `Bienvenido ${mejorCandidato.nombre}`, ICONO_SUCCESS);
                     }
                 };
                 xhttp2.open("POST", `${backendServer}/registrarTiempo.php`, true);
