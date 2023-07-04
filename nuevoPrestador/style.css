@@ -377,3 +377,12 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
   
 }
 
+#overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
