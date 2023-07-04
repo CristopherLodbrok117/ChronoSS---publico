@@ -33,7 +33,7 @@ try{
         background-size: 40px 40px;
         text-align: center;">
             <h1>Verificación de correo electrónico para encargado.</h1>
-            <img src="https://chronoss.mx/img/chronoss_logo.png" alt="chronoss logo" width="283" style="filter: invert(100%) hue-rotate(180deg) saturate(3);">
+            <img src="https://chronoss.mx/img/chronoss_logo_outline.png" alt="chronoss logo" width="283" style="filter: invert(100%) hue-rotate(180deg) saturate(3);">
             <p>Por favor haga click en el siguiente botón para completar su registro</p>
             <a href="https://chronoss.mx/conf.php?hash='.$newHash.'"><button style="
                 cursor: pointer;
