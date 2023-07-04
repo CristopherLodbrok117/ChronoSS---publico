@@ -234,6 +234,22 @@ background: linear-gradient(180deg, rgba(255,214,0,0.8603816526610644) 0%, rgba(
   transition: .4s all;
 }
 
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+footer > p{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .bg-exitoso {
   background-color: rgb(14, 241, 101);
 }
