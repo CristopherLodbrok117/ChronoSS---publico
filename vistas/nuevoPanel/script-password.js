@@ -1,5 +1,5 @@
 // const backendServer = "http://148.202.152.33/Servicio_Social";
-const backendServer = "https://chronoss.mx/api";
+// const backendServer = "https://chronoss.mx/api";
 
 const RESPUESTA_SERVER_ERRONEA = "X";
 

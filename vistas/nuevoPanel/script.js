@@ -1,4 +1,4 @@
-// checkAuth();
+checkAuth();
 const backendServer = "https://chronoss.mx/api";
 //const backendServer = "http://localhost:8000";
 
