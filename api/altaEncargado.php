@@ -35,7 +35,7 @@ try{
             <h1>Verificación de correo electrónico para encargado.</h1>
             <img src="https://chronoss.mx/img/chronoss_logo_outline.png" alt="chronoss logo" width="283" style="filter: invert(100%) hue-rotate(180deg) saturate(3);">
             <p>Por favor haga click en el siguiente botón para completar su registro</p>
-            <a href="https://chronoss.mx/conf.php?hash='.$newHash.'"><button style="
+            <a href="https://chronoss.mx/verif.php?hash='.$newHash.'"><button style="
                 cursor: pointer;
                 font-weight: 600;
                 border-radius: 3px;
@@ -47,7 +47,7 @@ try{
                 margin-bottom: 60px;
                 ">Verificar</button></a>
             <p><strong>En caso de no poder usar el botón copie y pegue el la siguiente URL en su navegador: </strong></p>
-            <p style="word-break: break-all	;">https://chronoss.mx/conf.php?hash='.$newHash.'</p>
+            <p style="word-break: break-all	;">https://chronoss.mx/verif.php?hash='.$newHash.'</p>
         </div>
     ';
 
