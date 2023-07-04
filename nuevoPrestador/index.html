@@ -37,9 +37,9 @@
     <h1 class="text-center incrementum" id="titulo">Nuevo prestador</h1>
     <div class="card mb-3 container" >
       <div class="row g-0">
-        <div class="col-md-6 position-relative cam-container d-flex flex-column justify-content-center">
-          <video  class="text-center position-relative cam-container__video" id="inputVideo" onloadeddata="onPlay(this)" autoplay muted playsinline></video>
-          <canvas id="overlay"></canvas>
+        <div class="col-md-6 position-relative cam-container d-flex flex-column">
+          <video  class="position-relative cam-container__video" id="inputVideo" onloadeddata="onPlay(this)" autoplay muted playsinline></video>
+          <canvas id="overlay" class=" position-absolute cam-container__canvas"></canvas>
           <!-- <video onloadeddata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video> -->
           <img src="../img/camara.png" class="img-fluid rounded-start position-absolute cam-container__img img-camara-minimizada" 
           id="img-camara" alt="Imagen de una camara">

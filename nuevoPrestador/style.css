@@ -45,12 +45,25 @@ body {
 }
 
 .cam-container__video {
-  /* background-color: #1414142d;
-  background: rgb(20,20,20);
-background: linear-gradient(180deg, rgba(20,20,20,0.5046393557422969) 0%, rgba(214,214,214,0.5186449579831933) 100%); */
   border-radius: 10px;
-  width: 85%;
-  margin: 0 auto;
+  width: 85%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.cam-container__canvas {
+  /*border: 1px solid black;*/
+  border-radius: 10px;
+  width: 85%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  /* margin: 0 auto; */
 }
 
 .cam-container__img {
@@ -328,7 +341,7 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
 
   .img-camara-minimizada {
     top: 95%;
-    height: 75%;
+    height: 60%;
     transition: 1s all;
   }
   
@@ -380,12 +393,3 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
   
 }
 
-#overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-}
