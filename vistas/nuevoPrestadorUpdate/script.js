@@ -1,3 +1,4 @@
+checkAuth();
 // const backendServer = "http://148.202.152.33/Servicio_Social";
 // const servicio = "/management/altaPrestador.php";
 // const tipoRequest = "POST";
@@ -80,3 +81,9 @@ btnCamRegistrar.addEventListener("click", function(){
 
 });
 
+function checkAuth(){
+  let token = localStorage.getItem('profe_token');
+  if(token == null || token == ""){
+      window.location.replace("../auth/");
+  }
+}
