@@ -84,7 +84,7 @@ function callServer(){
                 xhttp2.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         updateActivos();
-                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, `Bienvenido ${mejorCandidato.nombre}`, ICONO_SUCCESS);
+                        mostrarToast(TITULO_SUCCESS, BACKGROUND_SUCCESS, `${mejorCandidato.nombre} reconocido`, ICONO_SUCCESS);
                     }
                 };
                 xhttp2.open("POST", `${backendServer}/registrarTiempo.php`, true);
