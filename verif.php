@@ -31,7 +31,7 @@ try{
 
         $query = sprintf("delete from verifEncargado where idEncargado = %s", $row["idEncargado"]);
         $conn->query($query);
-        echo "Gracias por registrarse en el sistema ChronoSS, ".$row["nombre"].".";
+        echo 'Gracias por registrarse en el sistema <a href="https://chronoss.mx">ChronoSS</a>, '.$row["nombre"].".";
     }
     else{
         echo "Hash desconocido.";
