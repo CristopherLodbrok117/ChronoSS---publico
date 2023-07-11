@@ -29,6 +29,8 @@ document.querySelector("#boton-autorizar").addEventListener("click", function(){
 
 document.querySelector("#boton-nuke").addEventListener("click", function(){ 
     localStorage.clear();
+    alert("Derechos eliminados de este equipo");
+    location.reload();
 });
 
 
