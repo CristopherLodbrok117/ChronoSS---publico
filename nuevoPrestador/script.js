@@ -67,10 +67,10 @@ btnCamRegistrar.addEventListener("click", function(){
       if (this.readyState == 4 && this.status == 200) {
           let respuesta = xhttp.responseText;
           console.log(respuesta);
-          if(respuesta == RESPUESTA_SERVER_ERRONEA){
-            mostrarToast(TITULO_WARNING, BACKGROUND_WARNING, "Ocurrio un problema", ICONO_WARNING);
-          }else{
+          if(respuesta == "1"){
             mostrarToast(TITULO_SUCCESS, BACKGROUND_ESPERA, `${nombre} fue registrado como prestador de servicio`, ICONO_SUCCESS);
+          }else{
+            mostrarToast(TITULO_WARNING, BACKGROUND_WARNING, respuesta, ICONO_WARNING);
           }
           // location.reload();
           setTimeout(function(){ location.reload(); }, 5000);
