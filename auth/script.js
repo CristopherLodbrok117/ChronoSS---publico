@@ -27,4 +27,8 @@ document.querySelector("#boton-autorizar").addEventListener("click", function(){
     xhttp.send(null);
 });
 
+document.querySelector("#boton-nuke").addEventListener("click", function(){ 
+    localStorage.clear();
+});
+
 
