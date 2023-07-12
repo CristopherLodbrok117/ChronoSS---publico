@@ -109,7 +109,7 @@ background: linear-gradient(180deg, rgba(255,214,0,0.8603816526610644) 0%, rgba(
   align-items: center;
   justify-content: center;
 
-  width: 100%;
+  width: 50%;
   height: 4rem;
 
   background-color: var(--boton-bg);
@@ -118,12 +118,13 @@ background: linear-gradient(180deg, rgba(255,214,0,0.8603816526610644) 0%, rgba(
   font-weight: 500;
   border: none;
   
-  border-radius: 10px;
+  border-radius: 30px;
   position: relative;
 
   text-transform: uppercase;
   transition: .3s ease all;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .boton span, .boton i {
@@ -144,11 +145,11 @@ background: linear-gradient(180deg, rgba(255,214,0,0.8603816526610644) 0%, rgba(
 
 .boton.circular:hover span {
   /* transform: translateX(-300px); */
-  transform: translateX(-10vw);
+  transform: translateX(-3vw);
 }
 
 .boton.circular:hover i{
-  transform: translateX(10vw);
+  transform: translateX(3vw);
 }
 
 
@@ -305,13 +306,13 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
 
 @media screen and (width < 992px) {
 
-  .boton.circular:hover span {
+  /* .boton.circular:hover span {
     transform: translateX(-5vw);
   }
   
   .boton.circular:hover i{
     transform: translateX(5vw);
-  }
+  } */
 
   .cam-container__img {
     height: 60%;
@@ -321,6 +322,10 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
     top: 65%;
     height: 40%;
     transition: 1s all;
+  }
+
+  .boton {
+    width: 70%;
   }
   
 }
@@ -335,11 +340,11 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
   }
 
   .boton.circular:hover span {
-    transform: translateX(-18vw);
+    transform: translateX(-10vw);
   }
   
   .boton.circular:hover i{
-    transform: translateX(18vw);
+    transform: translateX(10vw);
   }
 
   .cam-container__img {
@@ -365,18 +370,35 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
     padding: 15px;
     
   }
+  .boton {
+    font-size: 1rem;
+    font-weight: bold;
+  }
 
   .boton.circular:hover span {
-    transform: translateX(-20vw);
+    transform: translateX(-7vw);
   }
   
   .boton.circular:hover i{
-    transform: translateX(20vw);
+    transform: translateX(7vw);
   }
 
   .contenedor-links {
     margin-bottom: 95px;
   }
+
+  footer{
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p{
+    margin-bottom: 0;
+}
+
+footer .separator{
+    display: none;
+}
   
 }
 
@@ -392,11 +414,11 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 5
   }
 
   .boton.circular:hover span {
-    transform: translateX(-10vw);
+    transform: translateX(-5vw);
   }
   
   .boton.circular:hover i{
-    transform: translateX(10vw);
+    transform: translateX(5vw);
   }
 
   
