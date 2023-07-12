@@ -4,9 +4,10 @@ const btnCamRegistrar = document.querySelector("#boton-camara");
 const streamContainer = document.querySelector("#webcamContainer");
 const imgCamara = document.querySelector("#img-camara"); // Animación de la camara
 const codigoInput = document.querySelector("#codigo-input");
+const spinner = document.querySelector(".lds-dual-ring");
 let camaraAbierta = false;
 let rasgos = [];
-let detectado = false; 
+let detectado = false, cargado = false;
 
 
 ( async () => {
@@ -40,6 +41,7 @@ async function abrirCamara() {
 async function onPlay(){
     if(!camaraAbierta) return;
     const videoFeed = document.querySelector("#inputVideo");
+    if(!cargado){spinner.style.display = "inline-block";}
 
     let fullFaceDescriptions = await faceapi.detectAllFaces(videoFeed)
     .withFaceLandmarks()
@@ -47,6 +49,8 @@ async function onPlay(){
     
     if(fullFaceDescriptions.length > 0){
         detectado = true;
+        spinner.style.display = "none";
+        cargado = true;
         rasgos = [...fullFaceDescriptions[0].descriptor].map( e =>  Number(e.toFixed(4)) );
         callServer();
     }else{
