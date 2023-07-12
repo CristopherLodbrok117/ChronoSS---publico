@@ -18,25 +18,33 @@ body{
     background-position: -19px -19px;
 }
 #banner-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: black;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(40,40,40,1) 47%, rgba(114,114,114,1) 100%);
 }
 
 #udg-cucei-logo{
-    width: 250px;
-    filter: invert(0%);
+  min-width: 230px;
+  max-width: 500px;
+  filter: invert(0%);
+  flex-grow: 1;
+  flex-shrink: 1;
 }
+
 #cuceimobilelogo{
-    width: 215px;
+  max-width: 430px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
-h1{
-    color: white;
-    text-align: center;
-    font-size: 40px;
-    margin: 0;
-    padding: 0;
+#titulo {
+  margin: 20px 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Bruno Ace SC', cursive;
+  text-transform: uppercase;
 }
 .contenedor{
     display: flex;
