@@ -9,6 +9,7 @@ const RESPUESTA_SERVER_ERRONEA = "X";
 const btnCamRegistrar = document.querySelector("#boton-registrar");
 const streamContainer = document.querySelector("#webcamContainer");
 const canva = document.querySelector("#overlay");
+const spinner = document.querySelector(".lds-dual-ring");
 let rasgos = [];
 
 const videoFeed = document.querySelector("#inputVideo");
@@ -31,6 +32,7 @@ async function onPlay(){
   .withFaceLandmarks()
   .withFaceDescriptors();
   if(fullFaceDescriptions.length > 0 ){
+      spinner.style.display = "none";
       rasgos = [...fullFaceDescriptions[0].descriptor];
   }else{
       rasgos = [];
